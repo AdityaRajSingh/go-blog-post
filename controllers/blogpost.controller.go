@@ -76,9 +76,10 @@ func FindAllBlogPosts(c *fiber.Ctx) error {
 // @Tags BlogPosts
 // @Accept json
 // @Produce json
+// @Param id path string true "blogPostId"
 // @Param blogPost body models.CreateBlogPostSchema true "BlogPost"
-// @Success 201 {string} status "ok"
-// @Router /api/blog-post [patch]
+// @Success 200 {object} models.BlogPost
+// @Router /api/blog-post/{id} [patch]
 func UpdateBlogPost(c *fiber.Ctx) error {
 	blogPostId := c.Params("blogPostId")
 
@@ -102,10 +103,10 @@ func UpdateBlogPost(c *fiber.Ctx) error {
 		updates["title"] = payload.Title
 	}
 	if payload.Body != "" {
-		updates["category"] = payload.Body
+		updates["body"] = payload.Body
 	}
 	if payload.Description != "" {
-		updates["content"] = payload.Description
+		updates["description"] = payload.Description
 	}
 
 	updates["updated_at"] = time.Now()
