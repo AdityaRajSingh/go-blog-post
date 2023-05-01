@@ -17,7 +17,7 @@ func init() {
 	if err != nil {
 		log.Fatalln("Failed to load environment variables! \n", err.Error())
 	}
-	initializers.ConnectDB(&config)
+	initializers.InitDB(&config)
 }
 
 // @title Blog-Post API
@@ -45,7 +45,6 @@ func main() {
 	app.Mount("/api", micro)
 	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:3000",
 		AllowHeaders:     "Origin, Content-Type, Accept",
 		AllowMethods:     "GET, POST, PATCH, DELETE",
 		AllowCredentials: true,

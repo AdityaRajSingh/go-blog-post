@@ -5,15 +5,21 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/google/uuid"
+	"gorm.io/gorm"
 )
 
 type BlogPost struct {
-	ID          uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4();primary_key" json:"id,omitempty"`
-	Title       string    `gorm:"varchar(255);uniqueIndex;not null" json:"title,omitempty"`
-	Description string    `gorm:"not null" json:"description,omitempty"`
-	Body        string    `gorm:"not null" json:"body,omitempty"`
+	ID          string    `gorm:primary_key" json:"id,omitempty"`
+	Title       string    `gorm:"varchar(255);not null" json:"title,omitempty"`
+	Description string    `gorm:"type:text;not null" json:"description,omitempty"`
+	Body        string    `gorm:"type:text;not null" json:"body,omitempty"`
 	CreatedAt   time.Time `gorm:"not null" json:"createdAt,omitempty"`
 	UpdatedAt   time.Time `gorm:"not null" json:"updatedAt,omitempty"`
+}
+
+func (blogPost *BlogPost) BeforeCreate(tx *gorm.DB) (err error) {
+	blogPost.ID = uuid.NewString()
+	return
 }
 
 var validate = validator.New()

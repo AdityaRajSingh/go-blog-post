@@ -30,6 +30,9 @@
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "get all exists blogPosts",
                 "responses": {
                     "200": {
@@ -51,6 +54,9 @@
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "create a new blogPost",
                 "parameters": [
                     {
@@ -63,8 +69,8 @@
                         }
                     },
                     {
-                        "description": "Content",
-                        "name": "content",
+                        "description": "Description",
+                        "name": "description",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -72,8 +78,8 @@
                         }
                     },
                     {
-                        "description": "Category",
-                        "name": "category",
+                        "description": "Body",
+                        "name": "body",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -98,6 +104,9 @@
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "update blogPost",
                 "parameters": [
                     {
@@ -110,8 +119,8 @@
                         }
                     },
                     {
-                        "description": "Content",
-                        "name": "content",
+                        "description": "Description",
+                        "name": "description",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -119,8 +128,8 @@
                         }
                     },
                     {
-                        "description": "Category",
-                        "name": "category",
+                        "description": "Body",
+                        "name": "body",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -146,6 +155,9 @@
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "BlogPosts"
                 ],
                 "summary": "get blogPosts by given ID",
                 "parameters": [
@@ -174,6 +186,9 @@
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "delete blogPost by given ID",
                 "parameters": [
                     {
@@ -185,11 +200,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/models.BlogPost"
-                        }
+                    "204": {
+                        "description": "No Content"
                     }
                 }
             }

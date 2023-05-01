@@ -44,6 +44,8 @@ paths:
               $ref: '#/definitions/models.BlogPost'
             type: array
       summary: get all exists blogPosts
+      tags:
+      - BlogPosts
     patch:
       consumes:
       - application/json
@@ -55,15 +57,15 @@ paths:
         required: true
         schema:
           type: string
-      - description: Content
+      - description: Description
         in: body
-        name: content
+        name: description
         required: true
         schema:
           type: string
-      - description: Category
+      - description: Body
         in: body
-        name: category
+        name: body
         required: true
         schema:
           type: string
@@ -75,6 +77,8 @@ paths:
           schema:
             type: string
       summary: update blogPost
+      tags:
+      - BlogPosts
     post:
       consumes:
       - application/json
@@ -86,15 +90,15 @@ paths:
         required: true
         schema:
           type: string
-      - description: Content
+      - description: Description
         in: body
-        name: content
+        name: description
         required: true
         schema:
           type: string
-      - description: Category
+      - description: Body
         in: body
-        name: category
+        name: body
         required: true
         schema:
           type: string
@@ -106,6 +110,8 @@ paths:
           schema:
             $ref: '#/definitions/models.BlogPost'
       summary: create a new blogPost
+      tags:
+      - BlogPosts
   /api/blog-post/{id}:
     delete:
       consumes:
@@ -120,11 +126,11 @@ paths:
       produces:
       - application/json
       responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/models.BlogPost'
+        "204":
+          description: No Content
       summary: delete blogPost by given ID
+      tags:
+      - BlogPosts
     get:
       consumes:
       - application/json
@@ -143,6 +149,8 @@ paths:
           schema:
             $ref: '#/definitions/models.BlogPost'
       summary: get blogPosts by given ID
+      tags:
+      - BlogPosts
 schemes:
 - http
 swagger: "2.0"

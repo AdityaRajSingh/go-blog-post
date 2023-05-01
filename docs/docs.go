@@ -34,6 +34,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "get all exists blogPosts",
                 "responses": {
                     "200": {
@@ -55,6 +58,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "create a new blogPost",
                 "parameters": [
                     {
@@ -67,8 +73,8 @@ const docTemplate = `{
                         }
                     },
                     {
-                        "description": "Content",
-                        "name": "content",
+                        "description": "Description",
+                        "name": "description",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -76,8 +82,8 @@ const docTemplate = `{
                         }
                     },
                     {
-                        "description": "Category",
-                        "name": "category",
+                        "description": "Body",
+                        "name": "body",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -102,6 +108,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "update blogPost",
                 "parameters": [
                     {
@@ -114,8 +123,8 @@ const docTemplate = `{
                         }
                     },
                     {
-                        "description": "Content",
-                        "name": "content",
+                        "description": "Description",
+                        "name": "description",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -123,8 +132,8 @@ const docTemplate = `{
                         }
                     },
                     {
-                        "description": "Category",
-                        "name": "category",
+                        "description": "Body",
+                        "name": "body",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -150,6 +159,9 @@ const docTemplate = `{
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "BlogPosts"
                 ],
                 "summary": "get blogPosts by given ID",
                 "parameters": [
@@ -178,6 +190,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "BlogPosts"
+                ],
                 "summary": "delete blogPost by given ID",
                 "parameters": [
                     {
@@ -189,11 +204,8 @@ const docTemplate = `{
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/models.BlogPost"
-                        }
+                    "204": {
+                        "description": "No Content"
                     }
                 }
             }

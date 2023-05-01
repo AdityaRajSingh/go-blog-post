@@ -13,12 +13,12 @@ import (
 // CreateBlogPost func for creates a new blogPost.
 // @Description Create a new blogPost.
 // @Summary create a new blogPost
-// @TagsBlogPosts
+// @Tags BlogPosts
 // @Accept json
 // @Produce json
 // @Param title body string true "Title"
-// @Param content body string true "Content"
-// @Param category body string true "Category"
+// @Param description  body string true "Description"
+// @Param body body string true "Body"
 // @Success 200 {object} models.BlogPost
 // @Router /api/blog-post [post]
 func CreateBlogPost(c *fiber.Ctx) error {
@@ -57,7 +57,7 @@ func CreateBlogPost(c *fiber.Ctx) error {
 // FindAllBlogPosts func gets all exists blogPosts.
 // @Description Get all exists blogPosts.
 // @Summary get all exists blogPosts
-// @TagsBlogPosts
+// @Tags BlogPosts
 // @Accept json
 // @Produce json
 // @Success 200 {array} models.BlogPost
@@ -75,12 +75,12 @@ func FindAllBlogPosts(c *fiber.Ctx) error {
 // UpdateBlogPost func for updates blogPost by given ID.
 // @Description Update blogPost.
 // @Summary update blogPost
-// @TagsBlogPosts
+// @Tags BlogPosts
 // @Accept json
 // @Produce json
 // @Param id body string true "BlogPost ID"
-// @Param content body string true "Content"
-// @Param category body string true "Category"
+// @Param description  body string true "Description"
+// @Param body body string true "Body"
 // @Success 201 {string} status "ok"
 // @Router /api/blog-post [patch]
 func UpdateBlogPost(c *fiber.Ctx) error {
@@ -122,7 +122,7 @@ func UpdateBlogPost(c *fiber.Ctx) error {
 // FindBlogPostById func gets blogPosts by given ID or 404 error.
 // @Description Get blogPosts by given ID.
 // @Summary get blogPosts by given ID
-// @TagsBlogPosts
+// @Tags BlogPosts
 // @Accept json
 // @Produce json
 // @Param id path string true "blogPostId"
@@ -146,11 +146,11 @@ func FindBlogPostById(c *fiber.Ctx) error {
 // DeleteBlogPost func for deletes book by given ID or 404 error.
 // @Description Delete blogPost by given ID.
 // @Summary delete blogPost by given ID
-// @TagsBlogPosts
+// @Tags BlogPosts
 // @Accept json
 // @Produce json
 // @Param id path string true "blogPostId"
-// @Success 200 {object} models.BlogPost
+// @Success 204
 // @Router /api/blog-post/{id} [delete]
 func DeleteBlogPost(c *fiber.Ctx) error {
 	blogPostId := c.Params("blogPostId")
