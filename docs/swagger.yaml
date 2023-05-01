@@ -15,6 +15,19 @@ definitions:
       updatedAt:
         type: string
     type: object
+  models.CreateBlogPostSchema:
+    properties:
+      body:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+    required:
+    - body
+    - description
+    - title
+    type: object
 host: localhost:8000
 info:
   contact:
@@ -51,24 +64,12 @@ paths:
       - application/json
       description: Update blogPost.
       parameters:
-      - description: BlogPost ID
+      - description: BlogPost
         in: body
-        name: id
+        name: blogPost
         required: true
         schema:
-          type: string
-      - description: Description
-        in: body
-        name: description
-        required: true
-        schema:
-          type: string
-      - description: Body
-        in: body
-        name: body
-        required: true
-        schema:
-          type: string
+          $ref: '#/definitions/models.CreateBlogPostSchema'
       produces:
       - application/json
       responses:
@@ -84,24 +85,12 @@ paths:
       - application/json
       description: Create a new blogPost.
       parameters:
-      - description: Title
+      - description: BlogPost
         in: body
-        name: title
+        name: blogPost
         required: true
         schema:
-          type: string
-      - description: Description
-        in: body
-        name: description
-        required: true
-        schema:
-          type: string
-      - description: Body
-        in: body
-        name: body
-        required: true
-        schema:
-          type: string
+          $ref: '#/definitions/models.CreateBlogPostSchema'
       produces:
       - application/json
       responses:

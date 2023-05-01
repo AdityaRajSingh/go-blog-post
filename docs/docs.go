@@ -64,30 +64,12 @@ const docTemplate = `{
                 "summary": "create a new blogPost",
                 "parameters": [
                     {
-                        "description": "Title",
-                        "name": "title",
+                        "description": "BlogPost",
+                        "name": "blogPost",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "Description",
-                        "name": "description",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "Body",
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/models.CreateBlogPostSchema"
                         }
                     }
                 ],
@@ -114,30 +96,12 @@ const docTemplate = `{
                 "summary": "update blogPost",
                 "parameters": [
                     {
-                        "description": "BlogPost ID",
-                        "name": "id",
+                        "description": "BlogPost",
+                        "name": "blogPost",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "Description",
-                        "name": "description",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "Body",
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/models.CreateBlogPostSchema"
                         }
                     }
                 ],
@@ -231,6 +195,25 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CreateBlogPostSchema": {
+            "type": "object",
+            "required": [
+                "body",
+                "description",
+                "title"
+            ],
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }

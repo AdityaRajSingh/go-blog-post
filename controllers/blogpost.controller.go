@@ -16,9 +16,7 @@ import (
 // @Tags BlogPosts
 // @Accept json
 // @Produce json
-// @Param title body string true "Title"
-// @Param description  body string true "Description"
-// @Param body body string true "Body"
+// @Param blogPost body models.CreateBlogPostSchema true "BlogPost"
 // @Success 200 {object} models.BlogPost
 // @Router /api/blog-post [post]
 func CreateBlogPost(c *fiber.Ctx) error {
@@ -78,9 +76,7 @@ func FindAllBlogPosts(c *fiber.Ctx) error {
 // @Tags BlogPosts
 // @Accept json
 // @Produce json
-// @Param id body string true "BlogPost ID"
-// @Param description  body string true "Description"
-// @Param body body string true "Body"
+// @Param blogPost body models.CreateBlogPostSchema true "BlogPost"
 // @Success 201 {string} status "ok"
 // @Router /api/blog-post [patch]
 func UpdateBlogPost(c *fiber.Ctx) error {
