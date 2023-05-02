@@ -35,7 +35,7 @@ func init() {
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host API_URL
+// @host 20.25.40.163:8000
 // @BasePath /
 // @schemes http
 func main() {

@@ -28,7 +28,7 @@ definitions:
     - description
     - title
     type: object
-host: API_URL
+host: 20.25.40.163:8000
 info:
   contact:
     email: support@swagger.io
