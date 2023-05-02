@@ -12,12 +12,15 @@ import (
 	"github.com/gofiber/swagger"
 )
 
+var API_URL string
+
 func init() {
 	config, err := initializers.LoadConfig(".")
 	if err != nil {
 		log.Fatalln("Failed to load environment variables! \n", err.Error())
 	}
 	initializers.InitDB(&config)
+	API_URL = config.API_URL
 }
 
 // @title Blog-Post API
@@ -32,7 +35,7 @@ func init() {
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host localhost:8000
+// @host API_URL
 // @BasePath /
 // @schemes http
 func main() {

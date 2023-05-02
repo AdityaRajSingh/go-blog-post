@@ -5,7 +5,8 @@ import (
 )
 
 type Config struct {
-	DSN string `mapstructure:"DSN"`
+	DSN     string `mapstructure:"DSN"`
+	API_URL string `mapstructure:"API_URL"`
 }
 
 func LoadConfig(path string) (config Config, err error) {
